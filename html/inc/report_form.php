@@ -53,7 +53,7 @@ $date_label = $mode === 'lost' ? 'Date lost' : 'Date found';
         <div class="form-group full">
             <label for="image">Upload an image</label>
             <input class="field" id="image" type="file" name="image" accept="image/jpeg,image/png,image/gif,image/webp" data-preview="image-preview">
-            <span class="hint">JPG, PNG, GIF or WebP, up to 1 MB. A clear image helps identify the item.</span>
+            <span class="hint">JPG, PNG, GIF or WebP. Large photos are shrunk automatically. A clear image helps identify the item.</span>
             <img id="image-preview" class="upload-preview" alt="Preview of the selected image" hidden>
             <?php if ($editing && !empty($report['has_photo'])): ?>
                 <label class="check"><input type="checkbox" name="remove_photo" value="1"> Remove the current image</label>

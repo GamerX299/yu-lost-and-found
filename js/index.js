@@ -56,25 +56,63 @@
     /* 4. Image preview and validation ------------------------------------ */
     document.querySelectorAll('input[type="file"][data-preview]').forEach(function (input) {
         var preview = document.getElementById(input.getAttribute('data-preview'));
+
+        // Shows the picture, or hides it and explains the problem in plain text.
+        function show(file) {
+            if (preview) {
+                preview.src = URL.createObjectURL(file);
+                preview.hidden = false;
+            }
+        }
+        function fail(message) {
+            input.value = '';
+            if (preview) { preview.hidden = true; }
+            input.setCustomValidity(message);
+            input.reportValidity();
+            input.setCustomValidity('');
+        }
+
+        // Big phone photos are shrunk in the browser (max 1280 px, JPEG) so they fit the 1 MB limit.
+        function shrink(file) {
+            var url = URL.createObjectURL(file);
+            var img = new Image();
+            img.onload = function () {
+                var scale = Math.min(1, 1280 / Math.max(img.width, img.height));
+                var canvas = document.createElement('canvas');
+                canvas.width = Math.round(img.width * scale);
+                canvas.height = Math.round(img.height * scale);
+                canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+                URL.revokeObjectURL(url);
+                canvas.toBlob(function (blob) {
+                    if (!blob || blob.size > MAX_IMAGE_BYTES || typeof DataTransfer === 'undefined') {
+                        fail('The image must be smaller than 1 MB. Please choose a smaller picture.');
+                        return;
+                    }
+                    var small = new File([blob], file.name.replace(/\.[^.]+$/, '') + '.jpg', { type: 'image/jpeg' });
+                    var list = new DataTransfer();
+                    list.items.add(small);
+                    input.files = list.files;
+                    show(small);
+                }, 'image/jpeg', 0.8);
+            };
+            img.onerror = function () { fail('This picture could not be read. Please choose a JPG or PNG image.'); };
+            img.src = url;
+        }
+
         input.addEventListener('change', function () {
             var file = input.files && input.files[0];
             input.setCustomValidity('');
             if (preview) { preview.hidden = true; }
             if (!file) { return; }
             if (IMAGE_TYPES.indexOf(file.type) === -1) {
-                input.setCustomValidity('Please choose a JPG, PNG, GIF or WebP image.');
-                input.reportValidity();
+                fail('Please choose a JPG, PNG, GIF or WebP image.');
                 return;
             }
             if (file.size > MAX_IMAGE_BYTES) {
-                input.setCustomValidity('The image must be smaller than 1 MB.');
-                input.reportValidity();
+                shrink(file);
                 return;
             }
-            if (preview) {
-                preview.src = URL.createObjectURL(file);
-                preview.hidden = false;
-            }
+            show(file);
         });
     });
 
