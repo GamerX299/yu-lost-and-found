@@ -97,18 +97,18 @@ function seed_database(): array
     // --- Student (6 rows) ------------------------------------------------
     if ($count('Student') === 0) {
         $students = [
-            [1000,    'admin',     'admin@yu.edu', 'Admin@1234',  'admin'],
-            [2210001, 'sara_ali',  'sara@yu.edu',  'Student@123', 'student'],
-            [2210002, 'omar_k',    'omar@yu.edu',  'Student@123', 'student'],
-            [2210003, 'laila_h',   'laila@yu.edu', 'Student@123', 'student'],
-            [2210004, 'yousef_m',  'yousef@yu.edu','Student@123', 'student'],
-            [2210005, 'noor_s',    'noor@yu.edu',  'Student@123', 'student'],
+            [1000,    'admin',     'admin@example.com', 'Admin@1234',  'admin'],
+            [2210001, 'sara_ali',  'sara@example.com',  'Student@123', 'student'],
+            [2210002, 'omar_k',    'omar@example.com',  'Student@123', 'student'],
+            [2210003, 'laila_h',   'laila@example.com', 'Student@123', 'student'],
+            [2210004, 'yousef_m',  'yousef@example.com','Student@123', 'student'],
+            [2210005, 'noor_s',    'noor@example.com',  'Student@123', 'student'],
         ];
         foreach ($students as [$id, $name, $email, $pass, $role]) {
             db_exec('INSERT INTO Student (user_id, user_name, email, password, role) VALUES (?,?,?,?,?)',
                 'issss', [$id, $name, $email, password_hash($pass, PASSWORD_DEFAULT), $role]);
         }
-        $messages[] = 'Inserted 6 students.';
+        $messages[] = 'Inserted 6 users.';
     }
 
     // --- Category (6 rows) -----------------------------------------------
@@ -128,9 +128,9 @@ function seed_database(): array
         // user, category, title, location, date, description, status, state
         $reports = [
             [2210001, 1, 'Wireless headphones', 'Main Library',        '2026-11-18', 'Black wireless headphones, possibly left on a study desk in the library.', 'lost',  'open'],
-            [2210002, 3, 'Set of keys',         'Student Center',      '2026-11-17', 'A set of keys with a red tag, found near the student center entrance.',      'found', 'open'],
+            [2210002, 3, 'Set of keys',         'Main Entrance',      '2026-11-17', 'A set of keys with a red tag, found near the main entrance.',      'found', 'open'],
             [2210003, 2, 'Blue notebook',       'Engineering Building','2026-11-16', 'Medium-sized blue notebook with lecture notes inside.',                       'lost',  'returned'],
-            [2210004, 5, 'Student ID card',     'Lecture Hall B',      '2026-11-15', 'Student card found on the floor outside lecture hall B.',                    'found', 'open'],
+            [2210004, 5, 'ID card',     'Hall B',      '2026-11-15', 'ID card found on the floor outside hall B.',                    'found', 'open'],
             [2210005, 4, 'Grey jacket',         'Cafeteria',           '2026-11-14', 'Light grey zip jacket left on a chair in the cafeteria.',                    'lost',  'open'],
             [2210002, 6, 'Black umbrella',      'North Gate',          '2026-11-13', 'Black folding umbrella found near the north parking entrance.',              'found', 'returned'],
             [2210001, 6, 'Water bottle',        'Gym entrance',        '2026-11-12', 'Steel water bottle with a green cap found by the gym entrance.',             'found', 'open'],
@@ -150,7 +150,7 @@ function seed_database(): array
         // report, claimant, message, status
         $claims = [
             [2, 2210001, 'These look like my keys - the red tag has my initials.',          'pending'],
-            [4, 2210005, 'This is my student card, I lost it on Sunday.',                   'pending'],
+            [4, 2210005, 'This is my ID card, I lost it on Sunday.',                   'pending'],
             [6, 2210004, 'The umbrella is mine, I left it at the north gate after class.',  'approved'],
             [1, 2210002, 'I think I saw headphones like these in the library on Tuesday.',  'pending'],
             [5, 2210003, 'I believe I saw this jacket in the cafeteria lost-property box.', 'rejected'],

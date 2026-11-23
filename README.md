@@ -1,6 +1,6 @@
-# YU Lost & Found — SWE 322 Advanced Web Programming Project
+# Lost & Found — SWE 322 Advanced Web Programming Project
 
-A web application where university students report **lost** and **found** belongings,
+A web application where people report **lost** and **found** belongings,
 browse reports, send claims to the person who posted an item, and manage their own reports.
 
 **Technologies:** HTML5 · CSS · JavaScript · PHP · MySQL (XAMPP)

@@ -14,9 +14,9 @@ $password = $_POST['u_pass'] ?? '';
 $password2 = $_POST['u_pass2'] ?? $password;
 
 if ($user_id_raw === '' || $user_name === '' || $user_email === '' || $password === '') {
-    flash('error', 'All fields are required (Student ID, username, email and password).');
+    flash('error', 'All fields are required (ID number, username, email and password).');
 } elseif (!ctype_digit($user_id_raw) || (int) $user_id_raw <= 0 || strlen($user_id_raw) > 9) {
-    flash('error', 'Student ID must be a positive number.');
+    flash('error', 'User ID must be a positive number.');
 } elseif (!preg_match('/^[A-Za-z0-9_.]{3,30}$/', $user_name)) {
     flash('error', 'Username must be 3-30 characters: letters, numbers, "_" or ".".');
 } elseif (!filter_var($user_email, FILTER_VALIDATE_EMAIL) || strlen($user_email) > 100) {
@@ -33,7 +33,7 @@ if ($user_id_raw === '' || $user_name === '' || $user_email === '' || $password 
         redirect('../html/login.php');
     }
     flash('error', db_errno() === 1062
-        ? 'That Student ID, username or email is already registered. Try signing in instead.'
+        ? 'That ID, username or email is already registered. Try signing in instead.'
         : 'Could not create the account. Please try again.');
 }
 redirect($back);

@@ -58,7 +58,7 @@ include __DIR__ . '/inc/header.php';
 ?>
 <main>
     <section class="page-hero">
-        <div class="container"><h1>Student dashboard</h1><p>Manage your lost and found reports in one place.</p></div>
+        <div class="container"><h1>My dashboard</h1><p>Manage your lost and found reports in one place.</p></div>
     </section>
     <section class="container content">
         <div class="dashboard-head">
@@ -68,7 +68,7 @@ include __DIR__ . '/inc/header.php';
             </div>
             <div class="actions wrap">
                 <?php if (is_admin()): ?>
-                    <a class="btn btn-outline" href="students.php">Manage students</a>
+                    <a class="btn btn-outline" href="students.php">Manage users</a>
                     <a class="btn btn-outline" href="categories.php">Manage categories</a>
                 <?php endif; ?>
                 <a class="btn" href="report-lost.php">＋ New report</a>
@@ -78,7 +78,7 @@ include __DIR__ . '/inc/header.php';
         <?php if (is_admin()): ?>
         <h2 class="section-title">Administrator overview</h2>
         <div class="dash-stats">
-            <div class="card dash-stat"><span>Students</span><strong><?= (int) $site['students'] ?></strong></div>
+            <div class="card dash-stat"><span>Users</span><strong><?= (int) $site['students'] ?></strong></div>
             <div class="card dash-stat"><span>All reports</span><strong><?= (int) $site['reports'] ?></strong></div>
             <div class="card dash-stat"><span>Open reports</span><strong><?= (int) $site['open_reports'] ?></strong></div>
             <div class="card dash-stat"><span>Pending claims</span><strong><?= (int) $site['pending_claims'] ?></strong></div>

@@ -21,15 +21,15 @@ $admin_count = fn() => (int) db_select_one("SELECT COUNT(*) AS n FROM Student WH
 if ($action === 'delete') {
     $target = db_select_one('SELECT role, user_name FROM Student WHERE user_id = ?', 'i', [$id]);
     if (!$target) {
-        flash('error', 'No student found with that ID.');
+        flash('error', 'No user found with that ID.');
     } elseif ($id === current_user_id()) {
         flash('error', 'You cannot delete your own account.');
     } elseif ($target['role'] === 'admin' && $admin_count() <= 1) {
         flash('error', 'You cannot delete the last administrator.');
     } elseif (db_exec('DELETE FROM Student WHERE user_id = ?', 'i', [$id]) === false) {
-        flash('error', 'Could not delete the student.');
+        flash('error', 'Could not delete the user.');
     } else {
-        flash('success', 'Student ' . $target['user_name'] . ' was deleted.');
+        flash('success', 'User ' . $target['user_name'] . ' was deleted.');
     }
     redirect($back);
 }
@@ -42,7 +42,7 @@ if ($action !== 'create' && $action !== 'update') {
 // ---- shared validation for create + update -----------------------------
 $error = '';
 if ($id <= 0) {
-    $error = 'Student ID must be a positive number.';
+    $error = 'User ID must be a positive number.';
 } elseif (!preg_match('/^[A-Za-z0-9_.]{3,30}$/', $name)) {
     $error = 'Username must be 3-30 characters: letters, numbers, "_" or ".".';
 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 100) {
@@ -59,9 +59,9 @@ if ($action === 'create') {
     $ok = db_exec('INSERT INTO Student (user_id, user_name, email, password, role) VALUES (?,?,?,?,?)',
         'issss', [$id, $name, $email, password_hash($password, PASSWORD_DEFAULT), $role]);
     if ($ok === false) {
-        flash('error', db_errno() === 1062 ? 'That ID, username or email already exists.' : 'Could not add the student.');
+        flash('error', db_errno() === 1062 ? 'That ID, username or email already exists.' : 'Could not add the user.');
     } else {
-        flash('success', 'Student ' . $name . ' was added.');
+        flash('success', 'User ' . $name . ' was added.');
     }
     redirect($back);
 }
@@ -69,7 +69,7 @@ if ($action === 'create') {
 // ---- update --------------------------------------------------------------
 $target = db_select_one('SELECT role FROM Student WHERE user_id = ?', 'i', [$id]);
 if (!$target) {
-    flash('error', 'No student found with that ID.');
+    flash('error', 'No user found with that ID.');
     redirect($back);
 }
 if ($target['role'] === 'admin' && $role === 'student' && $admin_count() <= 1) {
@@ -82,7 +82,7 @@ if ($ok !== false && $password !== '') {
     db_exec('UPDATE Student SET password = ? WHERE user_id = ?', 'si', [password_hash($password, PASSWORD_DEFAULT), $id]);
 }
 if ($ok === false) {
-    flash('error', db_errno() === 1062 ? 'That username or email is already used by someone else.' : 'Could not update the student.');
+    flash('error', db_errno() === 1062 ? 'That username or email is already used by someone else.' : 'Could not update the user.');
     redirect($back . '?edit=' . $id);
 }
 if ($id === current_user_id()) {                         // keep our own session in sync
@@ -90,5 +90,5 @@ if ($id === current_user_id()) {                         // keep our own session
     $_SESSION['user_email'] = $email;
     $_SESSION['role'] = $role;
 }
-flash('success', 'Student ' . $name . ' was updated.');
+flash('success', 'User ' . $name . ' was updated.');
 redirect($back);

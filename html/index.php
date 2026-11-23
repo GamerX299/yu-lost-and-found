@@ -22,9 +22,9 @@ include __DIR__ . '/inc/header.php';
     <section class="hero">
         <div class="container hero-grid">
             <div>
-                <span class="eyebrow">✦ A connected campus community</span>
+                <span class="eyebrow">✦ A connected community</span>
                 <h1>Lost something?<br>Let's bring it home.</h1>
-                <p>A simple, trusted place for university students to report lost belongings, share found items, and reconnect people with what matters.</p>
+                <p>A simple, trusted place for people to report lost belongings, share found items, and reconnect people with what matters.</p>
                 <div class="hero-buttons">
                     <a class="btn btn-light" href="browse.php">Browse items&nbsp; →</a>
                     <a class="btn btn-outline" href="report-lost.php">＋ Report an item</a>
@@ -33,7 +33,7 @@ include __DIR__ . '/inc/header.php';
             <div class="hero-art">
                 <div class="hero-icon">🎒</div>
                 <div class="float-chip chip-one">🔎 Find your item</div>
-                <div class="float-chip chip-two">🤝 Reunited on campus</div>
+                <div class="float-chip chip-two">🤝 Reunited with owners</div>
             </div>
         </div>
     </section>
@@ -42,7 +42,7 @@ include __DIR__ . '/inc/header.php';
         <div class="stats-grid">
             <div class="stat-card"><div class="stat-icon">📦</div><div><strong><?= $total ?></strong><span>Items reported</span></div></div>
             <div class="stat-card"><div class="stat-icon">🤝</div><div><strong><?= $returned ?></strong><span>Items returned</span></div></div>
-            <div class="stat-card"><div class="stat-icon">🎓</div><div><strong><?= $students ?></strong><span>Community members</span></div></div>
+            <div class="stat-card"><div class="stat-icon">👥</div><div><strong><?= $students ?></strong><span>Community members</span></div></div>
         </div>
     </section>
 
@@ -64,7 +64,7 @@ include __DIR__ . '/inc/header.php';
 
     <section class="container section section-flush">
         <div class="cta-band">
-            <div><h2>Found something on campus?</h2><p>Your quick report could make someone's day.</p></div>
+            <div><h2>Found something?</h2><p>Your quick report could make someone's day.</p></div>
             <a class="btn" href="report-found.php">Report a found item →</a>
         </div>
     </section>

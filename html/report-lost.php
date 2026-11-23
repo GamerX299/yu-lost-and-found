@@ -14,7 +14,7 @@ include __DIR__ . '/inc/header.php';
 ?>
 <main>
     <section class="page-hero">
-        <div class="container"><h1>Report a lost item</h1><p>Share a few details to help the university community identify the item.</p></div>
+        <div class="container"><h1>Report a lost item</h1><p>Share a few details to help the community identify the item.</p></div>
     </section>
     <section class="container content">
         <div class="form-layout">

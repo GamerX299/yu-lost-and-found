@@ -85,8 +85,8 @@ include __DIR__ . '/inc/header.php';
                     </div>
                 <?php elseif (!is_logged_in()): ?>
                     <h3 class="panel-title">Do you recognize this item?</h3>
-                    <p class="muted">Sign in to contact the student who submitted this report or submit a claim.</p>
-                    <a class="btn" href="login.php">Log in to contact student →</a>
+                    <p class="muted">Sign in to contact the person who submitted this report or submit a claim.</p>
+                    <a class="btn" href="login.php">Log in to contact them →</a>
                 <?php elseif ($my_claim): ?>
                     <h3 class="panel-title">Your claim</h3>
                     <p class="pre-line"><?= e($my_claim['Message']) ?></p>

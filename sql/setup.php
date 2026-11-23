@@ -26,7 +26,7 @@ $messages = array_merge($messages, create_database(), create_tables(), seed_data
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setup | YU Lost &amp; Found</title>
+    <title>Setup | Lost &amp; Found</title>
     <link rel="stylesheet" href="../html/css/style.css">
 </head>
 <body>

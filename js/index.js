@@ -1,5 +1,5 @@
 /**
- * index.js - front-end behaviour for YU Lost & Found (plain JavaScript, no libraries).
+ * index.js - front-end behaviour for Lost & Found (plain JavaScript, no libraries).
  *
  * Features
  *   1. Mobile menu button (☰) opens / closes the navigation.

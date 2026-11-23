@@ -5,8 +5,8 @@
     <div class="container">
         <div class="footer-row">
             <div>
-                <div class="footer-brand">YU Lost &amp; Found</div>
-                <div class="footer-small">Helping university belongings find their way home.</div>
+                <div class="footer-brand">Lost &amp; Found</div>
+                <div class="footer-small">Helping lost belongings find their way home.</div>
             </div>
             <div class="footer-links">
                 <a href="browse.php">Browse items</a>
@@ -15,7 +15,7 @@
                 <a href="about.html">About</a>
             </div>
         </div>
-        <div class="footer-small footer-copy">© <?= date('Y') ?> YU Lost &amp; Found. Student community platform.</div>
+        <div class="footer-small footer-copy">© <?= date('Y') ?> Lost &amp; Found. Community platform.</div>
     </div>
 </footer>
 <script src="../js/index.js"></script>

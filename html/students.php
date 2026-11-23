@@ -18,13 +18,13 @@ $students = db_select(
             (SELECT COUNT(*) FROM ItemReports r WHERE r.user_id = s.user_id) AS reports
        FROM Student s ORDER BY s.role, s.user_id');
 
-$page_title = 'Manage Students';
+$page_title = 'Manage Users';
 $active = 'students';
 include __DIR__ . '/inc/header.php';
 ?>
 <main>
     <section class="page-hero">
-        <div class="container"><h1>Student management</h1><p>Administrator tools: add, edit and remove student accounts.</p></div>
+        <div class="container"><h1>User management</h1><p>Administrator tools: add, edit and remove user accounts.</p></div>
     </section>
     <section class="container content">
         <div class="form-layout">
@@ -61,11 +61,11 @@ include __DIR__ . '/inc/header.php';
             <form class="card form-card" method="post" action="../sql/student_action.php" data-validate="student">
                 <?= csrf_field() ?>
                 <input type="hidden" name="action" value="<?= $edit ? 'update' : 'create' ?>">
-                <h2><?= $edit ? 'Edit student' : 'Add student' ?></h2>
+                <h2><?= $edit ? 'Edit user' : 'Add user' ?></h2>
                 <p class="form-intro"><?= $edit ? 'Leave the password empty to keep the current one.' : 'Create a new account.' ?></p>
                 <div class="auth-form">
                     <div class="form-group">
-                        <label for="s-id">Student ID *</label>
+                        <label for="s-id">User ID *</label>
                         <input class="field" type="number" id="s-id" name="u_id" min="1" required value="<?= e($edit['user_id'] ?? '') ?>" <?= $edit ? 'readonly' : '' ?>>
                     </div>
                     <div class="form-group">
@@ -83,12 +83,12 @@ include __DIR__ . '/inc/header.php';
                     <div class="form-group">
                         <label for="s-role">Role</label>
                         <select id="s-role" name="role">
-                            <option value="student" <?= ($edit['role'] ?? '') === 'student' ? 'selected' : '' ?>>Student</option>
+                            <option value="student" <?= ($edit['role'] ?? '') === 'student' ? 'selected' : '' ?>>User</option>
                             <option value="admin" <?= ($edit['role'] ?? '') === 'admin' ? 'selected' : '' ?>>Administrator</option>
                         </select>
                     </div>
                     <div class="form-actions">
-                        <button class="btn" type="submit"><?= $edit ? 'Save changes' : 'Add student' ?></button>
+                        <button class="btn" type="submit"><?= $edit ? 'Save changes' : 'Add user' ?></button>
                         <?php if ($edit): ?><a class="btn btn-outline" href="students.php">Cancel</a><?php endif; ?>
                     </div>
                 </div>

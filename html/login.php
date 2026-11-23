@@ -15,7 +15,7 @@ include __DIR__ . '/inc/header.php';
 ?>
 <main>
     <section class="page-hero">
-        <div class="container"><h1>Welcome to YU Lost &amp; Found</h1><p>Sign in or create an account to manage your reports.</p></div>
+        <div class="container"><h1>Welcome to Lost &amp; Found</h1><p>Sign in or create an account to manage your reports.</p></div>
     </section>
     <section class="container content">
         <div class="auth-wrap">
@@ -40,20 +40,20 @@ include __DIR__ . '/inc/header.php';
 
                 <div id="register">
                     <h2 class="auth-subtitle">Create an account</h2>
-                    <p class="hint">Register with your student details.</p>
+                    <p class="hint">Register with your details.</p>
                     <form class="auth-form" action="../sql/regis_action.php" method="post" data-validate="register">
                         <?= csrf_field() ?>
                         <div class="form-group">
-                            <label for="student-id">Student ID</label>
-                            <input class="field" type="number" id="student-id" name="u_id" required min="1" step="1" placeholder="Enter your student ID">
+                            <label for="student-id">User ID</label>
+                            <input class="field" type="number" id="student-id" name="u_id" required min="1" step="1" placeholder="Enter your ID number">
                         </div>
                         <div class="form-group">
                             <label for="name">Username</label>
                             <input class="field" id="name" name="u_name" required minlength="3" maxlength="30" pattern="[A-Za-z0-9_.]+" autocomplete="username" placeholder="Letters, numbers, _ and . only">
                         </div>
                         <div class="form-group">
-                            <label for="reg-email">University email</label>
-                            <input class="field" type="email" id="reg-email" name="u_email" required placeholder="name@university.edu">
+                            <label for="reg-email">Email</label>
+                            <input class="field" type="email" id="reg-email" name="u_email" required placeholder="name@example.com">
                         </div>
                         <div class="form-group">
                             <label for="reg-password">Create password</label>

@@ -61,7 +61,7 @@ $date_label = $mode === 'lost' ? 'Date lost' : 'Date found';
         </div>
         <div class="form-group full">
             <label for="contact">Contact information</label>
-            <input class="field" id="contact" name="contact" maxlength="120" value="<?= $val('Contact', $_SESSION['user_email'] ?? '') ?>" placeholder="University email or preferred contact">
+            <input class="field" id="contact" name="contact" maxlength="120" value="<?= $val('Contact', $_SESSION['user_email'] ?? '') ?>" placeholder="Email or preferred contact">
         </div>
         <div class="form-group full form-actions">
             <button class="btn" type="submit">
