@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How YU Lost & Found works: report, search, claim and return lost belongings on campus.">
+    <title>About | YU Lost &amp; Found</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- about.html is a plain HTML5 page (no PHP), so its menu is written by hand. -->
+<header class="site-header" id="site-header">
+    <div class="container nav-wrap">
+        <a class="brand" href="index.php"><span class="brand-mark">YU</span><span>YU Lost &amp; Found</span></a>
+        <nav class="nav-links" id="main-nav" aria-label="Main navigation">
+            <a href="index.php">Home</a>
+            <a href="browse.php">Browse Items</a>
+            <a href="report-lost.php">Report Lost</a>
+            <a href="report-found.php">Report Found</a>
+            <a href="dashboard.php">Dashboard</a>
+            <a class="active" href="about.html">About</a>
+        </nav>
+        <div class="nav-actions">
+            <a class="btn btn-outline btn-sm" href="login.php">Log in</a>
+            <button class="mobile-menu" type="button" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">☰</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="page-hero">
+        <div class="container">
+            <h1>How it works</h1>
+            <p>Four simple steps to bring a lost belonging back to its owner.</p>
+        </div>
+    </section>
+
+    <section class="container content">
+        <div class="item-grid">
+            <article class="card item-card">
+                <div class="item-body">
+                    <h3>1. Create an account</h3>
+                    <p>Register with your student ID and university email. It takes less than a minute.</p>
+                </div>
+            </article>
+            <article class="card item-card">
+                <div class="item-body">
+                    <h3>2. Report an item</h3>
+                    <p>Lost something or found something? Fill in the short form and add a photo if you have one.</p>
+                </div>
+            </article>
+            <article class="card item-card">
+                <div class="item-body">
+                    <h3>3. Search and claim</h3>
+                    <p>Browse the reports, filter by category, and send a message to the student who posted the item.</p>
+                </div>
+            </article>
+        </div>
+
+        <h2 class="section-title">Frequently asked questions</h2>
+        <div class="card form-card">
+            <h3 class="panel-title">Who can see my contact details?</h3>
+            <p class="muted">Only students who are logged in can see the contact information on a report.</p>
+            <h3 class="panel-title">Can I change or delete my report?</h3>
+            <p class="muted">Yes. Open your dashboard to edit, mark as returned, or delete any of your reports.</p>
+            <h3 class="panel-title">What happens when someone claims my item?</h3>
+            <p class="muted">You see the claim on your dashboard and can approve or reject it. Approving a claim marks the report as returned.</p>
+            <a class="btn" href="browse.php">Browse items →</a>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-row">
+            <div>
+                <div class="footer-brand">YU Lost &amp; Found</div>
+                <div class="footer-small">Helping university belongings find their way home.</div>
+            </div>
+            <div class="footer-links">
+                <a href="browse.php">Browse items</a>
+                <a href="report-lost.php">Report lost</a>
+                <a href="report-found.php">Report found</a>
+            </div>
+        </div>
+        <div class="footer-small footer-copy">© 2026 YU Lost &amp; Found. Student community platform.</div>
+    </div>
+</footer>
+<script src="../js/index.js"></script>
+</body>
+</html>
