@@ -144,4 +144,9 @@ Deleting a student or a report also deletes the rows that depend on it (`ON DELE
 
 ## 7. Team
 
-Group members: _add names and student IDs here_ (3–4 students).
+| Name | Student ID |
+|---|---|
+| Faiz Alhaj | 202211121 |
+| Khaled Wafa | 202410169 |
+| Ibrahim Albaiz | 202121375 |
+| Majed Alshuaibi | 202311375 |
